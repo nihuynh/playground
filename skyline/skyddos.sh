@@ -2,18 +2,6 @@
 # https://javapipe.com/blog/iptables-ddos-protection/
 # https://gist.github.com/pr0dukter/9c066b1b4e586a71ca13b29131505cff
 
-# reset the config
-/sbin/iptables -F
-/sbin/iptables -P INPUT DROP
-/sbin/iptables -P FORWARD DROP
-/sbin/iptables -P OUTPUT DROP
-
-# Allow input for the services
-/sbin/iptables -A INPUT  -m state --state ESTABLISHED,RELATED  -j ACCEPT
-/sbin/iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-/sbin/iptables -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT
-/sbin/iptables -A INPUT -p tcp -m tcp --dport 2222 -j ACCEPT
-
 # 1: Drop invalid packets ###
 /sbin/iptables -t mangle -A PREROUTING -m conntrack --ctstate INVALID -j DROP
 
@@ -67,8 +55,10 @@
 /sbin/iptables -A INPUT -p tcp -m conntrack --ctstate NEW -j DROP
 
 # SSH brute-force protection ###
-/sbin/iptables -A INPUT -p tcp --dport ssh -m conntrack --ctstate NEW -m recent --set
-/sbin/iptables -A INPUT -p tcp --dport ssh -m conntrack --ctstate NEW -m recent --update --seconds 60 --hitcount 10 -j DROP
+/sbin/iptables -A INPUT -p tcp -m state --state NEW --dport 2222 -j ACCEPT
+/sbin/iptables -A OUTPUT -p tcp -m state --state NEW --dport 2222 -j ACCEPT
+/sbin/iptables -A INPUT -p tcp --dport 2222 -m conntrack --ctstate NEW -m recent --set
+/sbin/iptables -A INPUT -p tcp --dport 2222 -m conntrack --ctstate NEW -m recent --update --seconds 60 --hitcount 10 -j DROP
 
 # Protection against port scanning ###
 /sbin/iptables -N port-scanning

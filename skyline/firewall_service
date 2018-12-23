@@ -1,0 +1,19 @@
+#!/bin/bash
+# /etc/init.d/firewall
+
+case "$1" in
+  start)
+    echo "Starting Service "
+    sudo sh /home/skyline/firewall.sh
+    ;;
+  stop)
+    echo "Stopping Service "
+    sudo /sbin/iptables -F
+    ;;
+  *)
+    echo "Usage: /etc/init.d/firewall {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
