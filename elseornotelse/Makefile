@@ -6,7 +6,7 @@
 #    By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 18:10:56 by nihuynh           #+#    #+#              #
-#    Updated: 2018/12/12 17:55:01 by nihuynh          ###   ########.fr        #
+#    Updated: 2018/12/25 03:03:53 by nihuynh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ LOGFILE	:=	$(SRC:.c=.log)
 all : $(NAME)
 .PHONY: all
 $(NAME) : $(OBJ)
-yoyoy
-
 %.s: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 clean :
