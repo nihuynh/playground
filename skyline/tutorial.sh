@@ -32,4 +32,33 @@ sudo vim /etc/ssh/sshd_config
 sudo vim /etc/init.d/firewall
 # => copy firewall service file
 sudo crontab -e
-# => @reboot sudo service firewall start
+# => @reboot		sudo service firewall start
+# => @reboot		sh /home/skyline/update.sh
+# => 00 4 * * 1	sh /home/skyline/update.sh
+# => @midnight	sh /home/skyline/tracker.sh
+
+sudo vim /home/skyline/update.sh
+
+#!/bin/bash
+LOGFILE="/var/log/update_script.log"
+apt-get update -y > $LOGFILE
+apt-get upgrade -y >> $LOGFILE
+
+sudo vim /home/skyline/tracker.sh
+
+#!/bin/bash
+# https://blog.jolos.fr/2017/02/envoyer-des-mails-en-ligne-de-commande-debian-8/
+# apt-get install -y ssmtp mailutils
+OLD=/etc/crontab.old
+CURRENT=/etc/crontab
+if [ ! -f $OLD ]
+then
+	cp $CURRENT $OLD
+	exit
+fi
+
+if [ $(md5sum $OLD | cut -d ' ' -f 1) != $(md5sum $CURRENT | cut -d ' ' -f 1) ]
+then
+	echo "Crontab has been modified" | mail -s "Alert: Crontab modif $HOST" root
+fi
+cp $CURRENT $OLD
