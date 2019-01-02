@@ -62,3 +62,7 @@ then
 	echo "Crontab has been modified" | mail -s "Alert: Crontab modif $HOST" root
 fi
 cp $CURRENT $OLD
+
+
+### Links :
+https://odan.github.io/2017/10/29/accessing-your-virtualbox-guest-from-your-host-os.html
