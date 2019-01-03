@@ -3,9 +3,10 @@
 
 int main(void)
 {
-	long double carry;
+	int idx;
 
-	carry = M_PI / 360;
-	printf("result is %.*Lf\n", 32, carry);
+	idx = -1;
+	while (++idx < 16)
+		printf("&f_unkn, &f_unkn, &f_unkn, &f_unkn, &f_unkn, &f_unkn, &f_unkn, &f_unkn,\n");
 	return (0);
 }
