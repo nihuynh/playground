@@ -46,7 +46,7 @@ sudo crontab -e
 
 # Set Apache
 
-sh playground/skyline/scripts//deploy.sh
+sh playground/skyline/scripts/deploy.sh
 
 
 ### Links :
