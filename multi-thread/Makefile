@@ -6,7 +6,7 @@
 #    By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 18:10:56 by nihuynh           #+#    #+#              #
-#    Updated: 2019/03/10 05:24:09 by nihuynh          ###   ########.fr        #
+#    Updated: 2019/03/10 07:17:21 by nihuynh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,11 @@ POOL	:=	fibo_pool.c pool.c
 SRC		:=	ft_fibonacci.c $(MONO) $(THREAD) $(POOL)
 # **************************************************************************** #
 CC		:=	clang
-CFLAGS	:=	-Werror -Wall -Wextra
+CFLAGS	:=	-Werror -Wall -Wextra -O2
+VFLAGS	:=	--tool=memcheck --leak-check=full --leak-resolution=high --show-reachable=yes --show-leak-kinds=all
 OBJ		:=	$(SRC:.c=.o)
 # **************************************************************************** #
 all : $(EXE)
-	time ./mono.out > fibo.log
-	time ./thread.out >> fibo.log
-	time ./pool.out >> fibo.log
 .PHONY: all
 
 %.o: %.c
@@ -47,3 +45,13 @@ fclean : clean
 
 re : fclean all
 .PHONY: re
+
+test : $(EXE)
+	time ./mono.out > fibo.log
+	time ./thread.out >> fibo.log
+	time ./pool.out >> fibo.log
+.PHONY: test
+
+val : pool.out
+	valgrind $(VFLAGS) ./pool.out
+.PHONY: val
