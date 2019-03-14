@@ -6,7 +6,7 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/13 02:30:46 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/03/13 02:36:52 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/03/14 21:20:03 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,16 @@
 # include <strings.h>
 # include "livetime.h"
 
+void	ft_memdel(void **ap)
+{
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
+}
 
-void	*lt_add(t_lt **lt, void *data, void destruct(void *))
+void	*lt_add(t_lt **lt, void *data, void destruct(void *), int mode)
 {
 	t_lt *node;
 
@@ -30,7 +38,9 @@ void	*lt_add(t_lt **lt, void *data, void destruct(void *))
 		*lt = node;
 		return (data);
 	}
-	lt_destroy(*lt);
+	lt_destroy(lt);
+	if (mode == EXIT_ONFAIL)
+		exit(1);
 	return (NULL);
 }
 
@@ -56,22 +66,24 @@ int		lt_detach(t_lt **lt, void *data)
 		prev_lt->next = wanted_lt->next;
 	else
 		*lt = wanted_lt->next;
-	free(wanted_lt);
+	ft_memdel((void **)&wanted_lt);
 	return (0);
 }
 
-int		lt_destroy(t_lt *lt)
+int		lt_destroy(t_lt **lt)
 {
 	t_lt *next_lt;
 
-	if (!(lt))
+	if (!(*lt))
 		return (1);
-	while (lt != NULL)
+	while (*lt != NULL)
 	{
-		lt->destruct(lt->data);
-		next_lt = lt->next;
-		free(lt);
-		lt = next_lt;
+		(*lt)->destruct((*lt)->data);
+		(*lt)->data = NULL;
+		next_lt = (*lt)->next;
+		(*lt)->next = NULL;
+		ft_memdel((void **)lt);
+		*lt = next_lt;
 	}
 	return (0);
 }
@@ -80,7 +92,7 @@ int		lt_print(t_lt *lt)
 {
 	while (lt != NULL)
 	{
-		printf ("Address => lt_frame :%p\tdata :%p\tlt_next :%p\n", lt, lt->data, lt->next);
+		printf("Address => lt_frame :%p\tdata :%p\tlt_next :%p\n", lt, lt->data, lt->next);
 		lt = lt->next;
 	}
 	return (0);

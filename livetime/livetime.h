@@ -6,12 +6,14 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 00:25:07 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/03/13 02:33:09 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/03/14 21:07:50 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIFETIME_H
 # define LIFETIME_H
+
+# define EXIT_ONFAIL 3
 
 typedef struct s_lt	t_lt;
 
@@ -22,9 +24,9 @@ struct				s_lt
 	t_lt			*next;
 };
 
-void				*lt_add(t_lt **lt, void *data, void destruct(void *));
+void				*lt_add(t_lt **lt, void *data, void destruct(void *), int mode);
 int					lt_detach(t_lt **lt, void *data);
-int					lt_destroy(t_lt *lt);
+int					lt_destroy(t_lt **lt);
 int					lt_print(t_lt *lt);
 
 #endif
