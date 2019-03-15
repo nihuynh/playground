@@ -6,7 +6,7 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/15 02:07:25 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/03/15 02:20:38 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/03/15 02:22:22 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static inline long get_current_usec() {
     struct timeval time;
     gettimeofday(&time, NULL);
-    return (time.tv_sec * 1000 * 1000 + time.tv_usec);
+    return (time.tv_sec * 1000000 + time.tv_usec);
 }
 
 int main() {
@@ -25,7 +25,7 @@ int main() {
 
 	elapsed_time = get_current_usec();
 	i = -1;
-	while(++i < 100000000)
+	while(++i < 10000000)
 	{
 		i--;
 		i++;
