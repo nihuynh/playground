@@ -52,5 +52,7 @@ Mkfile.old
 dkms.conf
 *.log
 .DS_Store
-latex/CV_NH_US.synctex.gz
-
+latex/CV_NH_*.fdb_latexmk
+latex/CV_NH_*.synctex.gz
+latex/CV_NH_*.aux
+latex/CV_NH_*.fls
