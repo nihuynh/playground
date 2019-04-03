@@ -6,7 +6,7 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 16:07:51 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/03/23 17:21:39 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/04/03 15:52:50 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ typedef enum {ERROR = -1, FALSE, TRUE} LOGICAL;
 # define BIT_OP_ADD(data, n) (data &= (1UL << n))
 
 // Print bits
-# define BIT_OP_PRINT(data) for(size_t i = (1 << ((sizeof(data) * 8) - 1)); i > 0; i >>= 1) {putc((data & i) ? '1' : '0', stdout);};putc('\n', stdout)
+# define BIT_OP_PRINT(data)											\
+	for(size_t i = (1 << ((sizeof(data) * 8) - 1)); i > 0; i >>= 1)	\
+	{putc((data & i) ? '1' : '0', stdout);};						\
+	putc('\n', stdout)
 
 #endif

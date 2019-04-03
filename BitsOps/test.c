@@ -6,7 +6,7 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 16:51:27 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/03/23 17:37:55 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/04/03 16:53:57 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	test_set()
 	{
 		BIT_OP_SET(data, len);
 	}
+	BIT_OP_PRINT(data);
 	if (data == res)
 		printf("%s is a success\n", __func__);
 }
