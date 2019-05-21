@@ -56,8 +56,4 @@ latex/CV_NH_*.fdb_latexmk
 latex/CV_NH_*.synctex.gz
 latex/CV_NH_*.aux
 latex/CV_NH_*.fls
-.vscode/ipch/eab1a0b21f1168b8/mmap_address.bin
-.vscode/ipch/eab1a0b21f1168b8/test.ipch
-.vscode/ipch/3a6dea62b7e9771c/mmap_address.bin
-.vscode/ipch/37a457e5e7f2c744/main.ipch
-.vscode/ipch/37a457e5e7f2c744/mmap_address.bin
+.vscode/ipch/*
