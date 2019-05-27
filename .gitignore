@@ -57,3 +57,6 @@ latex/CV_NH_*.synctex.gz
 latex/CV_NH_*.aux
 latex/CV_NH_*.fls
 .vscode/ipch/*
+mini_imgui
+imgui.ini
+cimgui.dylib
