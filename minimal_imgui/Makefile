@@ -6,7 +6,7 @@
 #    By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 18:10:56 by nihuynh           #+#    #+#              #
-#    Updated: 2019/05/26 20:32:49 by nihuynh          ###   ########.fr        #
+#    Updated: 2019/05/27 12:03:56 by nihuynh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ RUNMODE	?=	release
 SRC		:=	engine_loop.c engine_render.c engine.c engine_free.c\
 			tools.c main.c cimgui.c
 SRC		+=	fractol.c
-LIB_DEP		=	../RT/lib/imgui_impl/libimgui_impl.a
+LIB_DEP		=	../../RT/lib/imgui_impl/libimgui_impl.a
 # **************************************************************************** #
 include basic.mk
 include basic_lib.mk
@@ -27,7 +27,7 @@ endif
 ifeq ($(shell uname -s), Darwin)
 	CIMGUI_NAME = cimgui.dylib
 endif
-CIMGUI_TARGET :=	../RT/lib/cimgui/$(CIMGUI_NAME)
+CIMGUI_TARGET :=	../../RT/lib/cimgui/$(CIMGUI_NAME)
 
 # directories :
 VPATH       :=	./srcs
