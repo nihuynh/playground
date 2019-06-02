@@ -6,7 +6,7 @@
 #    By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 18:10:56 by nihuynh           #+#    #+#              #
-#    Updated: 2019/05/27 12:03:56 by nihuynh          ###   ########.fr        #
+#    Updated: 2019/06/02 20:14:47 by nihuynh          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,20 +15,11 @@ RUNMODE	?=	release
 SRC		:=	engine_loop.c engine_render.c engine.c engine_free.c\
 			tools.c main.c cimgui.c
 SRC		+=	fractol.c
-LIB_DEP		=	../../RT/lib/imgui_impl/libimgui_impl.a
+LIB_DEP		=	../../RT/lib/imgui_impl/libimgui_impl.a \
+				../../RT/lib/cimgui/libcimgui.a
 # **************************************************************************** #
-include basic.mk
-include basic_lib.mk
-
-# Additionnal linkers :
-ifeq ($(shell uname -s), Linux)
-	CIMGUI_NAME = cimgui.so
-endif
-ifeq ($(shell uname -s), Darwin)
-	CIMGUI_NAME = cimgui.dylib
-endif
-CIMGUI_TARGET :=	../../RT/lib/cimgui/$(CIMGUI_NAME)
-
+include ../../RT/basic.mk
+include ../../RT/basic_lib.mk
 # directories :
 VPATH       :=	./srcs
 # **************************************************************************** #
@@ -36,8 +27,7 @@ VPATH       :=	./srcs
 # SDL
 INC			+=	$(shell sdl2-config --cflags)
 LIB_LINK	+=	$(shell sdl2-config --libs)
-INC			+=	-I $(dir $(CIMGUI_TARGET))
-LIB_LINK	+=	$(CIMGUI_NAME) -lstdc++ -framework OpenGl
+LIB_LINK	+=	-lstdc++ -framework OpenGl
 # **************************************************************************** #
 # Target rules :
 .DEFAULT_GOAL := all
@@ -49,8 +39,15 @@ $(NAME): $(CIMGUI_NAME) $(OBJ) $(LIB_DEP)
 	@printf "\033[1;34m$(NAME)\033[25G\033[32mBuilt $@ $(OKLOGO)\n"
 -include $(DEP)
 
-$(CIMGUI_NAME):
-	$(MAKE) -sC $(dir $(CIMGUI_TARGET))
-	cp $(CIMGUI_TARGET) .
-fclean : clean  $(LIB_DEP_CLEAN) ## Clean the project.
+fclean : clean ## Clean the project.
+	rm -f server
+	rm -f client
+	rm -f imgui.ini
 	rm -f $(NAME)
+
+server: srcs/server.c
+	$(CC) $(CFLAGS) srcs/server.c -o $@ $(INC) $(LIB_LINK)
+	@printf "\033[1;34m$(NAME)\033[25G\033[32mBuilt $@ $(OKLOGO)\n"
+client: srcs/client.c
+	$(CC) $(CFLAGS) srcs/client.c -o $@ $(INC) $(LIB_LINK)
+	@printf "\033[1;34m$(NAME)\033[25G\033[32mBuilt $@ $(OKLOGO)\n"
