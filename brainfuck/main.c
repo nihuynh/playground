@@ -6,11 +6,11 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 02:04:56 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/04/14 02:05:35 by nihuynh          ###   ########.fr       */
+/*   Updated: 2019/07/04 18:04:43 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main (int ac, char av)
+int main (int ac, char **av)
 {
 	return (0);
 }
