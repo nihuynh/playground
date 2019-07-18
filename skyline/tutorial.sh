@@ -49,5 +49,10 @@ sudo crontab -e
 sh playground/skyline/scripts/deploy.sh
 
 
+### Correction command :
+
+history
+cat /etc/ssh/sshd_config /etc/network/interfaces && crontab -l
+sudo crontab -l && fdisk -l && iptables -L && service --status-all && apt-get update
 ### Links :
 https://odan.github.io/2017/10/29/accessing-your-virtualbox-guest-from-your-host-os.html
