@@ -62,3 +62,6 @@ imgui.ini
 cimgui.dylib
 C/ft_ls/ft_ls
 C/ft_ls/RT
+*.synctex.gz
+*.fls
+*.fdb_latexmk
