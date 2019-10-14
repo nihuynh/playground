@@ -35,7 +35,7 @@ all: $(NAME)  ## Built the project.
 .PHONY: all
 
 $(NAME): $(CIMGUI_NAME) $(OBJ) $(LIB_DEP)
-	$(CC) $(CFLAGS) $(OBJ) -o $@ $(INC) $(LIB_LINK)
+	$(CC) $(CFLAGS) $(OBJ) -o $@ -static $(LIB_DEP)
 	@printf "\033[1;34m$(NAME)\033[25G\033[32mBuilt $@ $(OKLOGO)\n"
 -include $(DEP)
 
