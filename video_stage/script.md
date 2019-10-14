@@ -5,8 +5,9 @@
 Start-Up founded in 2017 at Drahi X-Novation Center. (start-up accelerator of Polytechnique)
 The start-up is locate in Paris (75014 then 75013) and have offices at Palaiseau.
 There is 10 employees mostly in the offices in Paris but the mecanical division is at Polytechnique. (Palaiseau)
+The client are the airport or the airline companys.
 The company is developping an automated process to detect and locate FOD. (Foreign Object Debris)
-The current process is tidious and error prone. It is also time consumming.
+The current process is manual so tedious and error prone. It is also time consumming.
 The solutions use computer vision to optimise this process.
 
 ## How we work:
@@ -22,10 +23,11 @@ django
 
 ## What i've like:
 working with real sensors
+ppl i've met during my internship
 
 ## What was hard:
 test the code for the sensors
-
+switching from visual to pycharm
 
 ## What surprise me:
 No CI.
