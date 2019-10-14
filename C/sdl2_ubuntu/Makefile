@@ -3,9 +3,10 @@ INC			=	$(shell sdl2-config --cflags)
 INC			+=	-I../../../RT/lib/libft/includes
 
 LIB_LINK	=	$(shell sdl2-config --libs)
-LIB_DEP		=	../../../RT/lib/libft/libft.a
+LIB_DEP		=	-L ../../../RT/lib/libft -lft
 
 
 all:
-	gcc main.c $(INC) $(LIB_LINK) $(LIB_DEP)
+	gcc -c main.c -o main.o $(INC)
+	gcc main.o $(INC) $(LIB_LINK) $(LIB_DEP)
 	./a.out
