@@ -15,9 +15,6 @@
 
 int		engine_free(t_engine *engine)
 {
-	int idx;
-
-	idx = -1;
 	if (engine->handle != NULL)
 		free(engine->handle);
 	if (engine->win != NULL)

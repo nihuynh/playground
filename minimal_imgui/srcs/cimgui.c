@@ -86,13 +86,10 @@ void	spec_render_win(t_truc *ui_context)
 
 void	render_win(t_truc *ui_context)
 {
-	ImVec2 size;
 	t_engine	*engine;
 
 	(void)ui_context;
 	engine = get_engine(NULL);
-	size.x = ui_context->img_ref->width;
-	size.y = ui_context->img_ref->height;
 	igSetNextWindowPos((ImVec2){0, 0},  2, (ImVec2){0, 0});
 	igSetNextWindowSize((ImVec2){engine->render_size.x, engine->render_size.y}, 0);
 	igPushStyleVarVec2(ImGuiStyleVar_WindowPadding, (ImVec2){0, 0});
