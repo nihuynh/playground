@@ -18,8 +18,8 @@ SRC		+=	fractol.c
 LIB_DEP		=	../../RT/lib/imgui_impl/libimgui_impl.a \
 				../../RT/lib/cimgui/libcimgui.a
 # **************************************************************************** #
-include ../../RT/basic.mk
-include ../../RT/basic_lib.mk
+include ../../RT/lib/libft/mk_c_project.mk
+include ../../RT/lib/libft/mk_lib_dep.mk
 # directories :
 VPATH       :=	./srcs
 # **************************************************************************** #
@@ -27,7 +27,7 @@ VPATH       :=	./srcs
 # SDL
 INC			+=	$(shell sdl2-config --cflags)
 LIB_LINK	+=	$(shell sdl2-config --libs)
-LIB_LINK	+=	-lstdc++ -framework OpenGl
+LIB_LINK	+=	-lstdc++
 # **************************************************************************** #
 # Target rules :
 .DEFAULT_GOAL := all
