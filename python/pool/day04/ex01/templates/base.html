@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<style>
+			{% if id_page == 2 %}
+				{% include "templates/style2.css" %}
+			{% else %}
+				{% include "templates/style1.css" %}
+			{% endif %}
+		</style>
+		<title>{{title_page}}</title>
+		{% include "templates/nav.html" %}
+	</head>
+
+	<body>
+		<content>
+			{% if id_page == 0 %}
+				<h1>Django</h1>
+				<p>Django est un cadre de développement web source ouverte en Python. Il a pour but de rendre le développement web 2.0 simple et rapide. Pour cette raison, le projet a pour slogan « Le framework web pour les perfectionnistes sous pression ». Développé en 2003 pour le journal local de Lawrence (Kansas), Django a été publié sous licence BSD à partir de juillet 2005.</p>
+				<p>Depuis juin 2008, la Django Software Foundation s'occupe du développement et de la promotion du cadre. En plus de cette promotion régulière, des conférences entre développeurs et utilisateurs de Django sont organisées deux fois par an depuis 2008. Nommées DjangoCon, une se déroule en Europe et l'autre aux États-Unis.</p>
+				<p>Plusieurs sites grand public sont désormais fondés sur Django, dont Pinterest4 et Instagram5 au moins en 2011 ou encore Mozilla.</p> 
+			{% endif %}
+			{% if id_page == 1 %}
+			<h1>
+				Les templates en mode statique
+				</h1>
+				<p>C'est pourtant simple :</p>
+				<ul>
+				<li>tu fais un fichier html template que tu mets dans le répertoire templates de ton app</li>
+				<li>tu configures une route dans le fichier urls.py de ton app qui pointe sur une vue</li>
+				<li>dans cette vue, tu fais appel à la fonction render()</li>
+				</ul>
+				<h2>That's all folks!</h2>
+			{% endif %}
+			{% if id_page == 2 %}
+				<h1>Templates</h1>
+				<p>Ca n'est pas compliqué :
+					<ul>
+					<li>tu fais un fichier html template de base (par ex base.html) que tu mets dans le répertoire templates de ton app ou dans un repertoire global definit dans le parametre DIRS de TEMPLATES</li>
+					<li>tu y inclus des  blocs du style <p>&#123;% block mon_bloc %&#125;</p> <p>du html...</p> <p>&#123;% endblock %&#125;</p> </li>
+					<li>tu inclus dans tes templates un &#123;% extends 'base.html' %&#125;</li>
+					<li>tu configures une route dans le fichier urls.py de ton app qui pointe sur une vue</li>
+					<li>dans cette vue, tu fais appel à la fonction render() en lui passant un template en parametre...</li>
+					</ul>
+					En plus de cela, tu peux utiliser des balises pour faire :
+					<ul>
+					<li>l'inclusion de variables avec &#123;&#123; ma_variable &#125;&#125;</li>
+					<li>des boucles avec &#123;% for xx in yy %&#125;</li>
+					<li>des conditions avec &#123;% if mon_parametre == 2 %&#125;</li>
+					<li>de l'inclusion d'un autre template avec &#123;% include 'autre/template.html' %&#125;</li>
+					</ul>
+				</p> 
+				<h2>Django c'est drôlement chouettte ! </h2>
+			{% endif %}
+		</content>
+	</body>
+
+</html>
