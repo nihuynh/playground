@@ -15,7 +15,9 @@ agile dev (only sprints)
 
 ## What i've done:
 My first task was to extract specific information a stereo camera the T265.
-I've also verify the mesurement from a gps. (pixHawk)
+I've also verify the mesurement from a gps in a outdoor location (l'X). (from the pixHawk sensor)
+My next mission is a full stack one...
+Built the UI and UX for the application for the airport 
 
 ## What i've learn:
 python
