@@ -65,3 +65,8 @@ C/ft_ls/RT
 *.synctex.gz
 *.fls
 *.fdb_latexmk
+
+# PYTHON POOL
+__pycache__
+*.pyc
+
