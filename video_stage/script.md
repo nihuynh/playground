@@ -1,5 +1,3 @@
-# FlyInstinct
-
 ## Societe:
 
 Start-Up founded in 2017 at Drahi X-Novation Center. (start-up accelerator of Polytechnique)
@@ -32,7 +30,7 @@ html/css
 
 ## What i've like:
 working with real sensors
-ppl working at flyinstinct
+ppl working with
 ppl i've met during my internship
 
 ## What was hard:
