@@ -35,9 +35,9 @@ ppl i've met during my internship
 
 ## What was hard:
 Test the code for the sensors
-switching from visual to pycharm (NEVERMIND)
 
 ## What surprise me:
 No CI.
+No code review
 No guideline for the code.
 Time consume by externaling something
