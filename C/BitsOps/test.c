@@ -6,7 +6,7 @@
 /*   By: nihuynh <nihuynh@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/23 16:51:27 by nihuynh           #+#    #+#             */
-/*   Updated: 2019/04/03 16:53:57 by nihuynh          ###   ########.fr       */
+/*   Updated: 2020/11/09 16:15:21 by nihuynh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,9 @@ void	test_set()
 	res = ~(data);
 	len = sizeof(data) * 8;
 	printf("%s has started\n", __func__);
+	BIT_OP_PRINT(data);
 	while (--len >= 0)
-	{
 		BIT_OP_SET(data, len);
-	}
 	BIT_OP_PRINT(data);
 	if (data == res)
 		printf("%s is a success\n", __func__);

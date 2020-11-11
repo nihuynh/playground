@@ -41,3 +41,29 @@ No CI.
 No code review
 No guideline for the code.
 Time consume by externaling something
+
+
+
+Presentation:
+
+CEO
+Jerome VAYSSE
+- Vice President, Strategy & Co-founder
+
+Arthur (Yuan) Ni
+Founder & CEO of Flyinstinct
+
+Laure Gouhier
+International Business Development Manager
+
+Xuechao ZUO
+Product Manager
+
+DEV
+Antoine Deyris
+Ingénieur recherche/développement
+
+Sheng Fang
+Technical Lead and Chief Research Officer
+
+

@@ -70,3 +70,9 @@ C/ft_ls/RT
 __pycache__
 *.pyc
 
+
+# Rust
+Rust/*/target
+Rust/*/Cargo.lock
+video_stage/photos/*.jpeg
+video_stage/photos/*.mov
