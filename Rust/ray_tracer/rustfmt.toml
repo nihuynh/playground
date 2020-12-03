@@ -1,0 +1,10 @@
+blank_lines_lower_bound = 0
+blank_lines_upper_bound = 0
+brace_style = "PreferSameLine"
+max_width = 120
+array_width = 100
+attr_fn_like_width = 100
+fn_params_layout = "Compressed"
+fn_single_line = true
+indent_style = "Visual"
+struct_lit_width = 100
