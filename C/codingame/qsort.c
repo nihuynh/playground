@@ -13,6 +13,18 @@ int compare(const void *a, const void *b)
 	else return 1;
 }
 
+int find_smallest_interval(int n, int numbers[n])
+{
+	qsort(numbers, n, sizeof(int), compare);
+
+	int interval = numbers[n] - numbers[0];
+	for(int i = 0 ; i < n; i++ ) {
+      fprintf(stderr, "%d ", numbers[i]);
+   }
+   fprintf(stderr, "interval : %d\n", interval);
+    return -1;
+}
+
 int main()
 {
     int ints[] = { -9, 14, 37, 102 };
